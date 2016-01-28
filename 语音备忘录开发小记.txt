@@ -1,0 +1,6 @@
+1、参看Google play 上的Android Notes完善布局、增加功能；
+2、为了使Item上的按钮可以对应position响应，所以在AudioRecorderAdapter中做了相应的处理；
+
+3、把Item上的内容和dialog里面的内容分开加载。设置图片点击标识，然后单独获取、单独加载！因为貌似不能直接从ListView的Adapter中直接设置！
+
+4、设置背景和“小机器人”图片，可以参考慕课“仿微信图片选择器”！

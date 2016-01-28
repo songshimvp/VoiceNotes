@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg6"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#999999"
+        android:visibility="gone" 
+        android:id="@+id/topView"/>
+    <!-- 语音列表 -->
+
+    <ListView
+        android:id="@+id/voiceNotesListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#999999"
+        android:dividerHeight="5dp"
+        android:scrollbars="none"
+        android:listSelector="#00000000"
+        android:paddingTop="5dp" 
+        android:paddingBottom="2dp"
+        android:cacheColorHint="#00000000">
+    </ListView>
+
+    <!-- 底部按钮布局 -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <songshi.voicenotes.recorder.AudioRecorderButton
+            android:id="@+id/recorderButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/btn_recorder_normal"
+            android:gravity="center"
+            android:minHeight="0dp"
+            android:padding="5dp"
+            android:text="@string/str_recorder_normal"
+            android:textColor="#727272" >
+        </songshi.voicenotes.recorder.AudioRecorderButton>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#cccccc" />
+    </FrameLayout>
+
+</LinearLayout>

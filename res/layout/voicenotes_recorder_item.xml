@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical" 
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/currentTime_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="0dp"
+        android:text="currentTime"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <ImageView
+            android:id="@+id/voice_robot"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/robot" />
+
+        <FrameLayout
+            android:id="@+id/recorder_length"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/voice_robot"
+            android:background="@drawable/chatfrom_bg_normal" >
+
+            <View
+                android:id="@+id/recorder_anim"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical|left"
+                android:background="@drawable/voice_right" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/recorder_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@id/recorder_length"
+            android:text=""
+            android:textColor="#ff777777" />
+
+        <!-- 后面的两个“按钮” -->
+        <ImageView
+            android:id="@+id/reminderBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/reminder_color"
+            android:layout_alignParentRight="true" />
+
+        <ImageView
+            android:id="@+id/alarmclockBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/alarmclock_color1"
+            android:background="@android:color/transparent"
+            android:layout_toLeftOf="@id/reminderBtn"/>
+    </RelativeLayout>
+
+</LinearLayout>

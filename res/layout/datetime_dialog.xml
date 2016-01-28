@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:minHeight="0dp"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:text="日期:" 
+            android:textSize="12sp"/>
+
+        <TextView
+            android:layout_marginLeft="6dp"
+            android:id="@+id/reminderDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:minHeight="0dp"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    
+    <DatePicker
+        android:id="@+id/reminderDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:layout_gravity="center_horizontal"
+        
+        android:calendarViewShown="false"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="0dp" >
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="时间:"
+            android:minHeight="0dp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_marginLeft="6dp"
+            android:id="@+id/reminderTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:minHeight="0dp"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <TimePicker 
+        android:id="@+id/reminderTimePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:layout_gravity="center_horizontal"
+        />
+    
+    <CheckBox 
+        android:id="@+id/reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="0dp"
+        android:text="3分钟后重复提醒"
+        android:checked="true"
+        />
+</LinearLayout>
