@@ -40,7 +40,6 @@ public class MainActivity extends Activity {
 	
 	public static String currentTimeString = "";
 	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -67,12 +66,12 @@ public class MainActivity extends Activity {
 						
 						Recorder recorder = new Recorder(seconds, FilePath, currentTimeString);
 						mDatas.add(recorder);
-						mAdapter.notifyDataSetChanged();
-						mListView.setSelection(mDatas.size() - 1); 
+						mAdapter.notifyDataSetChanged();    //更新ListView
+						mListView.setSelection(mDatas.size() - 1);   //重新回到最后一个
 					}
 				});
 
-		mAdapter = new AudioRecorderAdapter(this, mDatas);
+		mAdapter = new AudioRecorderAdapter(this, mDatas);   //mDatas在上面回调“录音完成”接口时动态增加
 		mListView.setAdapter(mAdapter);
 
 		//mListView.getChildAt(index)
@@ -87,37 +86,46 @@ public class MainActivity extends Activity {
 					mAnimView.setBackgroundResource(R.drawable.voice_right3);   //直接设置成R.drawable.voice_right3
 					mAnimView = null;   //然后置成空
 				}
+				
 				// 播放动画
 				mAnimView = view.findViewById(R.id.recorder_anim);
 				mAnimView.setBackgroundResource(R.drawable.audio_play_anim);
 				AnimationDrawable anim = (AnimationDrawable) mAnimView
 						.getBackground();
 				anim.start();
+				
 				// 播放音频
 				MediaManage.playSound(mDatas.get(position).filePath,
 						new MediaPlayer.OnCompletionListener() {
 
 							@Override
 							public void onCompletion(MediaPlayer mp) {
+								//在播放结束以后，将动画取消
 								mAnimView.setBackgroundResource(R.drawable.voice_right3);
-
 							}
 						});
-
+			
 			}
 
 		});
 		
-		//ListView的左滑删除、点赞分享
+		
+		
+		//ListView的左滑——删除、标记、分享
 		// TODO
 		
 		
 	}
 
+	/**
+	 * 录音记录类（备忘信息）
+	 * @author songshi
+	 *
+	 */
 	public class Recorder {
-		float time;    //备忘录音时间长度
+		float time;         //备忘录音时间长度
 		String filePath;    //备忘录音文件路径
-		String mCurrentTime;     //备忘录音时的时间
+		String mCurrentTime;     //备忘录音时的系统时间
 
 		public Recorder(float time, String filePath ,String currentTime) {
 			super();

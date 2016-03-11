@@ -9,12 +9,17 @@ import android.widget.TextView;
 
 import com.example.voicenotes.R;
 
-
+/**
+ * 管理录音提示对话框
+ * 不同提示对话框显示原理：不同状态，显示部分View，隐藏部分View，然后居中显示
+ * @author songshi
+ *
+ */
 public class AudioDialogManage {
 	private Dialog mDialog;
 
-	private ImageView mIcon;
-	private ImageView mVoice;
+	private ImageView mIcon;    //左侧图标 
+	private ImageView mVoice;   //声音展示
 
 	private TextView mLabel;
 
@@ -24,7 +29,9 @@ public class AudioDialogManage {
 		this.mContext = context;
 	}
 
-	//默认的对话框的显示
+	/**
+	 * 默认的对话框的显示
+	 */
 	public void showRecorderingDialog() {
 		mDialog = new Dialog(mContext, R.style.Theme_AudioDialog);
 
@@ -40,7 +47,10 @@ public class AudioDialogManage {
 		mDialog.show();
 	}
 
-	//正在录音时，Dialog的显示
+	//下面在显示各种对话框时，mDialog已经被构造，只需要控制ImageView、TextView的显示即可
+	/**
+	 * 正在录音时，Dialog的显示
+	 */
 	public void recording() {
 		if (mDialog != null && mDialog.isShowing()) {
 			mIcon.setVisibility(View.VISIBLE);
@@ -52,6 +62,9 @@ public class AudioDialogManage {
 		}
 	}
 
+	/**
+	 * 取消录音提示对话框
+	 */
 	public void wantToCancel() {
 		if (mDialog != null && mDialog.isShowing()) {
 			mIcon.setVisibility(View.VISIBLE);
@@ -63,7 +76,9 @@ public class AudioDialogManage {
 		}
 	}
 
-	//录音时间过短
+	/**
+	 * 录音时间过短
+	 */
 	public void tooShort() {
 		if (mDialog != null && mDialog.isShowing()) {
 			
@@ -76,6 +91,9 @@ public class AudioDialogManage {
 		}
 	}
 
+	/**
+	 * mDialog.dismiss();
+	 */
 	public void dimissDialog() {
 		if (mDialog != null && mDialog.isShowing()) {
 			mDialog.dismiss();
@@ -83,15 +101,15 @@ public class AudioDialogManage {
 		}	
 	}
 
-	//通过Level更新Voice的图片V1——V7
+	/**
+	 * 通过Level更新Voice的图片：V1——V7
+	 * @param level
+	 */
 	public void updateVoiceLevel(int level) {
 		if (mDialog != null && mDialog.isShowing()) {
-			//mIcon.setVisibility(View.VISIBLE);
-			//mVoice.setVisibility(View.VISIBLE);
-			//mLabel.setVisibility(View.VISIBLE);
 			
-			int resId=mContext.getResources().getIdentifier("v"+level, "drawable", mContext.getPackageName());
-			mVoice.setImageResource(resId);
+			int voiceResId=mContext.getResources().getIdentifier("v"+level, "drawable", mContext.getPackageName());  //getIdentifier()获取应用包下指定资源的ID
+			mVoice.setImageResource(voiceResId);
 		}
 	}
 }
